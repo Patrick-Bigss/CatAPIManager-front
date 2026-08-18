@@ -1,38 +1,33 @@
- // Endereço da nossa API
 const URL_API = "http://localhost:8080/gatinhos";
 
+function mostrarNaTela(dados) {
 
-// ==========================================
+    const tela = document.getElementById("telaResposta");
+
+    tela.innerText = JSON.stringify(dados, null, 4);
+}
+
 // 1. GET - BUSCAR
-// ==========================================
 
 async function buscarGato() {
 
-    // Faz uma requisição para o Spring Boot
     const resposta = await fetch(URL_API);
 
-    // Pega a resposta e transforma em JSON
     const dados = await resposta.json();
 
-    // Mostra os dados na tela
     mostrarNaTela(dados);
 
 
-    // Pega a tabela do HTML
     const tabela = document.querySelector("tbody");
 
-    // Limpa a tabela
     tabela.innerHTML = "";
 
 
-    // Percorre os gatos recebidos
     for (let gato of dados) {
 
-        // Cria uma nova linha
         const linha = document.createElement("tr");
 
 
-        // Coloca os dados do gato na linha
         linha.innerHTML = `
             <td>${gato.id}</td>
             <td>${gato.nome}</td>
@@ -42,15 +37,12 @@ async function buscarGato() {
         `;
 
 
-        // Coloca a linha dentro da tabela
         tabela.appendChild(linha);
     }
 }
 
 
-// ==========================================
-// 2. POST - CADASTRAR
-// ==========================================
+// 2. POST
 
 async function cadastrarGATO() {
 
@@ -60,10 +52,8 @@ async function cadastrarGATO() {
 
     const cor = document.getElementById("inputCor").value;
 
-    const idade = document.getElementById("inputIdade").value;
+    const idade = Number(document.getElementById("inputIdade").value);
 
-
-    // Cria o objeto gato
     const gato = {
 
         nome: nome,
@@ -76,7 +66,6 @@ async function cadastrarGATO() {
     };
 
 
-    // Envia o gato para o Spring Boot
     const resposta = await fetch(URL_API, {
 
         method: "POST",
@@ -89,54 +78,41 @@ async function cadastrarGATO() {
     });
 
 
-    // Pega a resposta do Spring Boot
     const dados = await resposta.json();
 
 
-    // Mostra a resposta na tela
     mostrarNaTela(dados);
 
 
-    // Atualiza a tabela
     buscarGato();
 }
 
 
-// ==========================================
 // 3. GET POR ID
-// ==========================================
 
 async function gatoPorId() {
 
-    // Pega o ID digitado
     const id = document.getElementById("inputId").value;
 
 
-    // Monta o endereço usando o ID
     const resposta = await fetch(URL_API + "/" + id);
 
 
-    // Transforma a resposta em JSON
     const gato = await resposta.json();
 
 
-    // Mostra o gato na tela
     mostrarNaTela(gato);
 
 
-    // Pega a tabela
     const tabela = document.querySelector("tbody");
 
 
-    // Limpa a tabela
     tabela.innerHTML = "";
 
 
-    // Cria uma linha
     const linha = document.createElement("tr");
 
 
-    // Coloca os dados do gato na linha
     linha.innerHTML = `
         <td>${gato.id}</td>
         <td>${gato.nome}</td>
@@ -146,14 +122,11 @@ async function gatoPorId() {
     `;
 
 
-    // Coloca a linha na tabela
     tabela.appendChild(linha);
 }
 
 
-// ==========================================
-// 4. PUT - ATUALIZAR
-// ==========================================
+// 4. PUT 
 
 async function gatoAtualizar() {
 
@@ -165,10 +138,8 @@ async function gatoAtualizar() {
 
     const cor = document.getElementById("inputCor").value;
 
-    const idade = document.getElementById("inputIdade").value;
+    const idade = Number(document.getElementById("inputIdade").value);
 
-
-    // Cria o objeto com os dados atualizados
     const gato = {
 
         nome: nome,
@@ -181,7 +152,6 @@ async function gatoAtualizar() {
     };
 
 
-    // Envia os dados para o Spring Boot
     const resposta = await fetch(URL_API + "/" + id, {
 
         method: "PUT",
@@ -194,79 +164,76 @@ async function gatoAtualizar() {
     });
 
 
-    // Pega a resposta
     const dados = await resposta.json();
 
 
-    // Mostra a resposta
     mostrarNaTela(dados);
 
 
-    // Atualiza a tabela
     buscarGato();
 }
 
 
-// ==========================================
-// 5. DELETE - EXCLUIR
-// ==========================================
+
+// 5. DELETE - 
 
 async function GatoExcluir() {
 
-    // Pega o ID digitado
     const id = document.getElementById("inputId").value;
 
 
-    // Envia a requisição DELETE
     const resposta = await fetch(URL_API + "/" + id, {
 
         method: "DELETE"
     });
 
 
-    // O DELETE retorna uma mensagem de texto
     const mensagem = await resposta.text();
 
 
-    // Mostra a mensagem na tela
     document.getElementById("telaResposta").innerText = mensagem;
 
-
-    // Atualiza a tabela
     buscarGato();
 }
 
 
-// ==========================================
-// 6. GET - GATO ALEATÓRIO
-// ==========================================
+
+// 6. GET
 
 async function buscarGatoAleatorio() {
 
-    // Faz a requisição para o nosso Spring Boot
-    const resposta = await fetch(URL_API + "/aleatorio");
+    const resposta = await fetch(
+        URL_API + "/aleatorio"
+    );
 
-
-    // Recebe a lista de gatos
     const gatos = await resposta.json();
 
-
-    // Pega o primeiro gato da lista
     const gato = gatos[0];
 
+    const resultado =
+        document.getElementById("resultadoGato");
 
-    // Pega o espaço onde vamos mostrar o gato
-    const resultado = document.getElementById("resultadoGato");
 
-
-    // Mostra o gato na página
     resultado.innerHTML = `
-        <h5>🐱 Gato aleatório</h5>
 
-        <img 
-            src="${gato.url}" 
-            alt="Gato aleatório"
-            width="300"
-        >
+        <div class="card mt-3">
+
+            <div class="card-body">
+
+                <h5 class="card-title">
+                    🐱 Gato aleatório
+                </h5>
+
+                <img 
+                    src="${gato.url}" 
+                    alt="Gato aleatório"
+                    class="img-fluid rounded"
+                    style="max-width: 400px;"
+                >
+
+            </div>
+
+        </div>
+
     `;
 }

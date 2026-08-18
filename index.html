@@ -23,16 +23,9 @@
 
 <body>
 
-    <!-- ==========================================
-         CONTAINER PRINCIPAL
-    =========================================== -->
 
     <div class="container mt-5 mb-5">
 
-
-        <!-- ==========================================
-             TÍTULO
-        =========================================== -->
 
         <div class="text-center mb-4">
 
@@ -46,10 +39,6 @@
 
         </div>
 
-
-        <!-- ==========================================
-             FORMULÁRIO DE CADASTRO
-        =========================================== -->
 
         <div class="card shadow mb-4">
 
@@ -68,8 +57,6 @@
 
                     <div class="row">
 
-
-                        <!-- NOME -->
 
                         <div class="col-md-3 mb-3">
 
@@ -90,8 +77,6 @@
                         </div>
 
 
-                        <!-- RAÇA -->
-
                         <div class="col-md-3 mb-3">
 
                             <label
@@ -111,8 +96,6 @@
                         </div>
 
 
-                        <!-- COR -->
-
                         <div class="col-md-3 mb-3">
 
                             <label
@@ -131,8 +114,6 @@
 
                         </div>
 
-
-                        <!-- IDADE -->
 
                         <div class="col-md-3 mb-3">
 
@@ -155,14 +136,12 @@
                     </div>
 
 
-                    <!-- BOTÃO CADASTRAR -->
-
                     <div class="text-center">
 
                         <button
                             type="button"
                             class="btn btn-success"
-                            onclick="fazerPOST()"
+                            onclick="cadastrarGATO()"
                         >
                             🐱 Cadastrar Gato
                         </button>
@@ -175,10 +154,6 @@
 
         </div>
 
-
-        <!-- ==========================================
-             ÁREA DE OPERAÇÕES POR ID
-        =========================================== -->
 
         <div class="card shadow mb-4">
 
@@ -195,8 +170,6 @@
 
                 <div class="row">
 
-
-                    <!-- ID -->
 
                     <div class="col-md-4 mb-3">
 
@@ -217,14 +190,12 @@
                     </div>
 
 
-                    <!-- BOTÕES -->
-
                     <div class="col-md-8 d-flex align-items-end gap-2 mb-3">
 
                         <button
                             type="button"
                             class="btn btn-primary"
-                            onclick="fazerGETPorId()"
+                            onclick="gatoPorId()"
                         >
                             🔍 Buscar
                         </button>
@@ -233,7 +204,7 @@
                         <button
                             type="button"
                             class="btn btn-warning"
-                            onclick="fazerPUT()"
+                            onclick="gatoAtualizar()"
                         >
                             ✏️ Atualizar
                         </button>
@@ -242,7 +213,7 @@
                         <button
                             type="button"
                             class="btn btn-danger"
-                            onclick="fazerDELETE()"
+                            onclick="GatoExcluir()"
                         >
                             🗑️ Excluir
                         </button>
@@ -255,10 +226,6 @@
 
         </div>
 
-
-        <!-- ==========================================
-             TABELA DE GATOS
-        =========================================== -->
 
         <div class="card shadow mb-4">
 
@@ -310,26 +277,19 @@
 
                         <tbody>
 
-                            <!--
-                                Os gatos serão adicionados
-                                automaticamente pelo JS.
-                            -->
-
+                        
                         </tbody>
 
                     </table>
 
                 </div>
 
-
-                <!-- BOTÃO ATUALIZAR LISTA -->
-
                 <div class="text-center">
 
                     <button
                         type="button"
                         class="btn btn-secondary"
-                        onclick="fazerGET()"
+                        onclick="buscarGato()"
                     >
                         🔄 Atualizar lista
                     </button>
@@ -340,77 +300,61 @@
 
         </div>
 
+<div class="card shadow mb-4">
 
-        <!-- ==========================================
-             GATO ALEATÓRIO
-        =========================================== -->
+    <div class="card-header bg-dark text-white">
 
-        <div class="card shadow mb-4">
-
-            <div class="card-header bg-dark text-white">
-
-                <h5 class="mb-0 text-center">
-                    🐱 Gato aleatório
-                </h5>
-
-            </div>
-
-
-            <div class="card-body text-center">
-
-                <button
-                    type="button"
-                    class="btn btn-dark btn-lg"
-                    onclick="buscarGatoAleatorio()"
-                >
-                    🐱 Buscar gato aleatório
-                </button>
-
-
-                <div
-                    id="resultadoGato"
-                    class="mt-4"
-                >
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- ==========================================
-             RESPOSTA DA API
-        =========================================== -->
-
-        <div class="card shadow">
-
-            <div class="card-header bg-secondary text-white">
-
-                <h5 class="mb-0 text-center">
-                    Resposta da API
-                </h5>
-
-            </div>
-
-
-            <div class="card-body">
-
-                <pre
-                    id="telaResposta"
-                    class="bg-light p-3"
-                ></pre>
-
-            </div>
-
-        </div>
-
+        <h5 class="mb-0 text-center">
+            🐱 Gato aleatório
+        </h5>
 
     </div>
 
 
-   
-    <script src="js/script.js"></script>
+    <div class="card-body text-center">
+
+        <button
+            type="button"
+            class="btn btn-primary"
+            onclick="buscarGatoAleatorio()"
+        >
+            🐱 Buscar gato aleatório
+        </button>
+
+
+        <div
+            id="resultadoGato"
+            class="mt-3"
+        ></div>
+
+    </div>
+
+</div>
+
+<div class="card shadow">
+
+    <div class="card-header bg-secondary text-white">
+
+        <h5 class="mb-0 text-center">
+            Resposta da API
+        </h5>
+
+    </div>
+
+
+    <div class="card-body">
+
+        <pre
+            id="telaResposta"
+            class="bg-light p-3"
+        ></pre>
+
+    </div>
+
+</div>
+
+
+    <script src="/JS/🟨 script.js"></script>
 
 </body>
 
