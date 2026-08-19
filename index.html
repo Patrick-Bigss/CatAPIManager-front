@@ -5,63 +5,97 @@
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>🐱 Cat Manager</title>
+    <title>Cat Manager</title>
 
     <!-- Bootstrap -->
     <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
 
 </head>
 
 
-<body>
+<body class="bg-light">
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar navbar-dark bg-dark mb-4">
+
+        <div class="container">
+
+            <span class="navbar-brand mb-0 h1">
+                🐱 Cat Manager
+            </span>
+
+        </div>
+
+    </nav>
 
 
-    <div class="container mt-5 mb-5">
+    <div class="container">
 
+        <!-- TÍTULO -->
 
         <div class="text-center mb-4">
 
-            <h1>
-                🐱 CAT MANAGER
-            </h1>
+            <h1>🐱 Gerenciador de Gatos</h1>
 
             <p class="text-muted">
-                Sistema de gerenciamento de gatos
+                Cadastre, consulte e descubra gatos através da The Cat API.
             </p>
 
         </div>
 
 
-        <div class="card shadow mb-4">
+        <!-- ============================= -->
+        <!-- CADASTRO -->
+        <!-- ============================= -->
+
+        <div class="card shadow-sm mb-4">
 
             <div class="card-header bg-dark text-white">
 
-                <h5 class="mb-0 text-center">
-                    Cadastrar Gato
-                </h5>
+                <h4 class="mb-0">
+                    Cadastro de Gato
+                </h4>
 
             </div>
 
 
             <div class="card-body">
 
-                <form id="formGato">
+                <form>
 
                     <div class="row">
 
+                        <!-- ID -->
 
                         <div class="col-md-3 mb-3">
 
                             <label
-                                for="inputNome"
+                                for="inputId"
+                                class="form-label"
+                            >
+                                ID
+                            </label>
+
+                            <input
+                                type="number"
+                                id="inputId"
+                                class="form-control"
+                                placeholder="ID do gato"
+                            >
+
+                        </div>
+
+
+                        <div class="col-md-9 mb-3">
+
+                            <label
+                                for="inputName"
                                 class="form-label"
                             >
                                 Nome
@@ -69,144 +103,98 @@
 
                             <input
                                 type="text"
-                                id="inputNome"
+                                id="inputName"
                                 class="form-control"
-                                placeholder="Digite o nome do gato"
+                                placeholder="Nome do gato"
                             >
 
                         </div>
 
 
-                        <div class="col-md-3 mb-3">
+                        <div class="col-md-6 mb-3">
 
                             <label
-                                for="inputRaca"
+                                for="inputTemperament"
                                 class="form-label"
                             >
-                                Raça
+                                Temperamento
                             </label>
 
                             <input
                                 type="text"
-                                id="inputRaca"
+                                id="inputTemperament"
                                 class="form-control"
-                                placeholder="Digite a raça do gato"
+                                placeholder="Ex: Active, Energetic"
                             >
 
                         </div>
 
 
-                        <div class="col-md-3 mb-3">
+                        <div class="col-md-6 mb-3">
 
                             <label
-                                for="inputCor"
+                                for="inputOrigin"
                                 class="form-label"
                             >
-                                Cor
+                                Origem
                             </label>
 
                             <input
                                 type="text"
-                                id="inputCor"
+                                id="inputOrigin"
                                 class="form-control"
-                                placeholder="Digite a cor do gato"
+                                placeholder="Ex: Egypt"
                             >
 
                         </div>
 
 
-                        <div class="col-md-3 mb-3">
+                        <div class="col-12 mb-3">
 
                             <label
-                                for="inputIdade"
+                                for="inputDescription"
                                 class="form-label"
                             >
-                                Idade
+                                Descrição
                             </label>
 
-                            <input
-                                type="number"
-                                id="inputIdade"
+                            <textarea
+                                id="inputDescription"
                                 class="form-control"
-                                placeholder="Idade"
-                            >
+                                rows="4"
+                                placeholder="Descrição do gato"
+                            ></textarea>
 
                         </div>
 
                     </div>
 
-
-                    <div class="text-center">
+                    <div class="d-flex flex-wrap gap-2">
 
                         <button
                             type="button"
                             class="btn btn-success"
                             onclick="cadastrarGATO()"
                         >
-                            🐱 Cadastrar Gato
+                            ➕ Cadastrar
                         </button>
 
-                    </div>
-
-                </form>
-
-            </div>
-
-        </div>
-
-
-        <div class="card shadow mb-4">
-
-            <div class="card-header bg-secondary text-white">
-
-                <h5 class="mb-0 text-center">
-                    Operações por ID
-                </h5>
-
-            </div>
-
-
-            <div class="card-body">
-
-                <div class="row">
-
-
-                    <div class="col-md-4 mb-3">
-
-                        <label
-                            for="inputId"
-                            class="form-label"
-                        >
-                            ID do gato
-                        </label>
-
-                        <input
-                            type="number"
-                            id="inputId"
-                            class="form-control"
-                            placeholder="Digite o ID"
-                        >
-
-                    </div>
-
-
-                    <div class="col-md-8 d-flex align-items-end gap-2 mb-3">
 
                         <button
                             type="button"
                             class="btn btn-primary"
-                            onclick="gatoPorId()"
+                            onclick="gatoAtualizar()"
                         >
-                            🔍 Buscar
+                            ✏️ Atualizar
                         </button>
 
 
                         <button
                             type="button"
-                            class="btn btn-warning"
-                            onclick="gatoAtualizar()"
+                            class="btn btn-info"
+                            onclick="gatoPorId()"
                         >
-                            ✏️ Atualizar
+                            🔎 Buscar por ID
                         </button>
 
 
@@ -218,57 +206,89 @@
                             🗑️ Excluir
                         </button>
 
+
+                        <button
+                            type="button"
+                            class="btn btn-dark"
+                            onclick="buscarGato()"
+                        >
+                            📋 Listar gatos
+                        </button>
+
                     </div>
 
-                </div>
+                </form>
 
             </div>
 
         </div>
 
 
-        <div class="card shadow mb-4">
+        <div class="card shadow-sm mb-4">
 
-            <div class="card-header bg-dark text-white">
+            <div class="card-header bg-warning">
 
-                <h5 class="mb-0 text-center">
-                    Gatos cadastrados
-                </h5>
+                <h4 class="mb-0">
+                    🐱 Gato Aleatório
+                </h4>
 
             </div>
 
 
-            <div class="card-body p-4">
+            <div class="card-body text-center">
+
+                <p class="text-muted">
+                    Busque um gatinho aleatório
+                </p>
+
+
+                <button
+                    type="button"
+                    class="btn btn-warning"
+                    onclick="buscarGatoAleatorio()"
+                >
+                    🎲 Buscar gato aleatório
+                </button>
+
+
+                <div id="resultadoGato"></div>
+
+            </div>
+
+        </div>
+
+        <div class="card shadow-sm mb-4">
+
+            <div class="card-header bg-dark text-white">
+
+                <h4 class="mb-0">
+                    📋 Gatos cadastrados
+                </h4>
+
+            </div>
+
+
+            <div class="card-body">
 
                 <div class="table-responsive">
 
-                    <table
-                        class="table table-striped table-hover align-middle"
-                    >
+                    <table class="table table-striped table-hover align-middle">
 
                         <thead class="table-dark">
 
                             <tr>
 
-                                <th class="text-center py-3">
-                                    ID
-                                </th>
+                                <th>ID</th>
 
-                                <th class="py-3">
-                                    Nome
-                                </th>
+                                <th>Nome</th>
 
-                                <th class="py-3">
-                                    Raça
-                                </th>
+                                <th>Temperamento</th>
 
-                                <th class="py-3">
-                                    Cor
-                                </th>
+                                <th>Origem</th>
 
-                                <th class="text-center py-3">
-                                    Idade
-                                </th>
+                                <th>Descrição</th>
+
+                                <th>Imagem</th>
 
                             </tr>
 
@@ -277,22 +297,9 @@
 
                         <tbody>
 
-                        
                         </tbody>
 
                     </table>
-
-                </div>
-
-                <div class="text-center">
-
-                    <button
-                        type="button"
-                        class="btn btn-secondary"
-                        onclick="buscarGato()"
-                    >
-                        🔄 Atualizar lista
-                    </button>
 
                 </div>
 
@@ -300,58 +307,36 @@
 
         </div>
 
-<div class="card shadow mb-4">
 
-    <div class="card-header bg-dark text-white">
+        <div class="card shadow-sm mb-5">
 
-        <h5 class="mb-0 text-center">
-            🐱 Gato aleatório
-        </h5>
+            <div class="card-header">
 
-    </div>
+                <h4 class="mb-0">
+                    💻 Resposta da API
+                </h4>
 
-
-    <div class="card-body text-center">
-
-        <button
-            type="button"
-            class="btn btn-primary"
-            onclick="buscarGatoAleatorio()"
-        >
-            🐱 Buscar gato aleatório
-        </button>
+            </div>
 
 
-        <div
-            id="resultadoGato"
-            class="mt-3"
-        ></div>
+            <div class="card-body">
 
-    </div>
+                <pre
+                    id="telaResposta"
+                    class="bg-dark text-white p-3 rounded"
+                ></pre>
 
-</div>
+            </div>
 
-<div class="card shadow">
-
-    <div class="card-header bg-secondary text-white">
-
-        <h5 class="mb-0 text-center">
-            Resposta da API
-        </h5>
+        </div>
 
     </div>
 
 
-    <div class="card-body">
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    ></script>
 
-        <pre
-            id="telaResposta"
-            class="bg-light p-3"
-        ></pre>
-
-    </div>
-
-</div>
 
 
     <script src="/JS/🟨 script.js"></script>

@@ -1,5 +1,8 @@
 const URL_API = "http://localhost:8080/gatinhos";
 
+
+// MOSTRAR RESPOSTA NA TELA
+
 function mostrarNaTela(dados) {
 
     const tela = document.getElementById("telaResposta");
@@ -7,7 +10,8 @@ function mostrarNaTela(dados) {
     tela.innerText = JSON.stringify(dados, null, 4);
 }
 
-// 1. GET - BUSCAR
+
+// 1. GET - BUSCAR TODOS
 
 async function buscarGato() {
 
@@ -17,52 +21,60 @@ async function buscarGato() {
 
     mostrarNaTela(dados);
 
-
     const tabela = document.querySelector("tbody");
 
     tabela.innerHTML = "";
-
 
     for (let gato of dados) {
 
         const linha = document.createElement("tr");
 
-
         linha.innerHTML = `
             <td>${gato.id}</td>
-            <td>${gato.nome}</td>
-            <td>${gato.raca}</td>
-            <td>${gato.cor}</td>
-            <td>${gato.idade}</td>
+            <td>${gato.name}</td>
+            <td>${gato.temperament}</td>
+            <td>${gato.origin}</td>
+            <td>${gato.description}</td>
+            <td>
+                <img
+                    src="${gato.url}"
+                    alt="${gato.name}"
+                    width="100"
+                >
+            </td>
         `;
-
 
         tabela.appendChild(linha);
     }
 }
 
 
-// 2. POST
+// 2. POST - CADASTRAR
 
 async function cadastrarGATO() {
 
-    const nome = document.getElementById("inputNome").value;
+    const name =
+        document.getElementById("inputName").value;
 
-    const raca = document.getElementById("inputRaca").value;
+    const temperament =
+        document.getElementById("inputTemperament").value;
 
-    const cor = document.getElementById("inputCor").value;
+    const origin =
+        document.getElementById("inputOrigin").value;
 
-    const idade = Number(document.getElementById("inputIdade").value);
+    const description =
+        document.getElementById("inputDescription").value;
+
 
     const gato = {
 
-        nome: nome,
+        name: name,
 
-        raca: raca,
+        temperament: temperament,
 
-        cor: cor,
+        origin: origin,
 
-        idade: idade
+        description: description
     };
 
 
@@ -80,9 +92,7 @@ async function cadastrarGATO() {
 
     const dados = await resposta.json();
 
-
     mostrarNaTela(dados);
-
 
     buscarGato();
 }
@@ -92,123 +102,134 @@ async function cadastrarGATO() {
 
 async function gatoPorId() {
 
-    const id = document.getElementById("inputId").value;
+    const id =
+        document.getElementById("inputId").value;
 
+    const resposta =
+        await fetch(URL_API + "/" + id);
 
-    const resposta = await fetch(URL_API + "/" + id);
-
-
-    const gato = await resposta.json();
-
+    const gato =
+        await resposta.json();
 
     mostrarNaTela(gato);
 
-
-    const tabela = document.querySelector("tbody");
-
+    const tabela =
+        document.querySelector("tbody");
 
     tabela.innerHTML = "";
 
-
-    const linha = document.createElement("tr");
-
+    const linha =
+        document.createElement("tr");
 
     linha.innerHTML = `
         <td>${gato.id}</td>
-        <td>${gato.nome}</td>
-        <td>${gato.raca}</td>
-        <td>${gato.cor}</td>
-        <td>${gato.idade}</td>
+        <td>${gato.name}</td>
+        <td>${gato.temperament}</td>
+        <td>${gato.origin}</td>
+        <td>${gato.description}</td>
+        <td>
+            <img
+                src="${gato.url}"
+                alt="${gato.name}"
+                width="100"
+            >
+        </td>
     `;
-
 
     tabela.appendChild(linha);
 }
 
 
-// 4. PUT 
+// 4. PUT - ATUALIZAR
 
 async function gatoAtualizar() {
 
-    const id = document.getElementById("inputId").value;
+    const id =
+        document.getElementById("inputId").value;
 
-    const nome = document.getElementById("inputNome").value;
+    const name =
+        document.getElementById("inputName").value;
 
-    const raca = document.getElementById("inputRaca").value;
+    const temperament =
+        document.getElementById("inputTemperament").value;
 
-    const cor = document.getElementById("inputCor").value;
+    const origin =
+        document.getElementById("inputOrigin").value;
 
-    const idade = Number(document.getElementById("inputIdade").value);
+    const description =
+        document.getElementById("inputDescription").value;
+
 
     const gato = {
 
-        nome: nome,
+        name: name,
 
-        raca: raca,
+        temperament: temperament,
 
-        cor: cor,
+        origin: origin,
 
-        idade: idade
+        description: description
     };
 
 
-    const resposta = await fetch(URL_API + "/" + id, {
+    const resposta =
+        await fetch(URL_API + "/" + id, {
 
-        method: "PUT",
+            method: "PUT",
 
-        headers: {
-            "Content-Type": "application/json"
-        },
+            headers: {
+                "Content-Type": "application/json"
+            },
 
-        body: JSON.stringify(gato)
-    });
+            body: JSON.stringify(gato)
+        });
 
 
-    const dados = await resposta.json();
-
+    const dados =
+        await resposta.json();
 
     mostrarNaTela(dados);
 
-
     buscarGato();
 }
 
 
-
-// 5. DELETE - 
+// 5. DELETE
 
 async function GatoExcluir() {
 
-    const id = document.getElementById("inputId").value;
+    const id =
+        document.getElementById("inputId").value;
 
+    const resposta =
+        await fetch(URL_API + "/" + id, {
 
-    const resposta = await fetch(URL_API + "/" + id, {
+            method: "DELETE"
+        });
 
-        method: "DELETE"
-    });
+    const mensagem =
+        await resposta.text();
 
-
-    const mensagem = await resposta.text();
-
-
-    document.getElementById("telaResposta").innerText = mensagem;
+    document.getElementById("telaResposta").innerText =
+        mensagem;
 
     buscarGato();
 }
 
 
-
-// 6. GET
+// 6. GET - GATO ALEATÓRIO
 
 async function buscarGatoAleatorio() {
 
-    const resposta = await fetch(
-        URL_API + "/aleatorio"
-    );
+    const resposta =
+        await fetch(URL_API + "/aleatorio");
 
-    const gatos = await resposta.json();
+    const gato =
+        await resposta.json();
 
-    const gato = gatos[0];
+
+    mostrarNaTela(gato);
+
 
     const resultado =
         document.getElementById("resultadoGato");
@@ -221,19 +242,33 @@ async function buscarGatoAleatorio() {
             <div class="card-body">
 
                 <h5 class="card-title">
-                    🐱 Gato aleatório
+                    🐱 ${gato.name}
                 </h5>
 
-                <img 
-                    src="${gato.url}" 
-                    alt="Gato aleatório"
+                <img
+                    src="${gato.url}"
+                    alt="${gato.name}"
                     class="img-fluid rounded"
                     style="max-width: 400px;"
                 >
 
+                <p class="mt-3">
+                    <strong>Temperamento:</strong>
+                    ${gato.temperament}
+                </p>
+
+                <p>
+                    <strong>Origem:</strong>
+                    ${gato.origin}
+                </p>
+
+                <p>
+                    <strong>Descrição:</strong>
+                    ${gato.description}
+                </p>
+
             </div>
 
         </div>
-
     `;
 }
