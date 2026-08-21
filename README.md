@@ -23,12 +23,11 @@ O frontend não acessa o MySQL diretamente.
 
 Toda a comunicação com o banco de dados é realizada através do **backend desenvolvido em Spring Boot**.
 
+Repositório do Backend: 🔗 Back: https://github.com/Patrick-Bigss/CatManagerBack
+
 ---
 
 ```text
-Repositório do Backend:
-🔗 Backend:
-https://github.com/Patrick-Bigss/CatAPIManager-front
 
 ## 🔄 Funcionamento
 
