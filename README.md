@@ -25,6 +25,11 @@ Toda a comunicação com o banco de dados é realizada através do **backend des
 
 ---
 
+```text
+🔗 Backend:
+https://github.com/SEU-USUARIO/CatManagerBack
+
+
 ## 🔄 Funcionamento
 
 O fluxo da aplicação funciona da seguinte maneira:
@@ -40,10 +45,6 @@ O fluxo da aplicação funciona da seguinte maneira:
                   ↙       ↘
                  ↓         ↓
            The Cat API    MySQL
-
-```text
-🔗 Backend:
-https://github.com/SEU-USUARIO/CatManagerBack
 
 A The Cat API fornece os dados das raças.
 
