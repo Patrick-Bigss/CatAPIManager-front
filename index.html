@@ -9,7 +9,6 @@
 
     <title>Cat Manager</title>
 
-    <!-- Bootstrap -->
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"
@@ -20,311 +19,536 @@
 
 <body class="bg-light">
 
-    <!-- NAVBAR -->
 
-    <nav class="navbar navbar-dark bg-dark mb-4">
-
-        <div class="container">
-
-            <span class="navbar-brand mb-0 h1">
-                🐱 Cat Manager
-            </span>
-
-        </div>
-
-    </nav>
-
+<nav class="navbar navbar-dark bg-dark mb-4">
 
     <div class="container">
 
-        <!-- TÍTULO -->
+        <span class="navbar-brand mb-0 h1">
+            🐱 Cat Manager
+        </span>
 
-        <div class="text-center mb-4">
+    </div>
 
-            <h1>🐱 Gerenciador de Gatos</h1>
+</nav>
 
-            <p class="text-muted">
-                Cadastre, consulte e descubra gatos através da The Cat API.
-            </p>
+
+<div class="container">
+
+
+    <div class="text-center mb-4">
+
+        <h1 class="fw-bold">
+            Gerenciador de Gatos
+        </h1>
+
+        <p class="text-muted">
+            Busque inúmeros gatinhos e suas descrições
+        </p>
+
+    </div>
+
+    <div class="card shadow-sm mb-4">
+
+        <div class="card-header bg-dark text-white">
+
+            <h5 class="mb-0">
+                Consultas
+            </h5>
 
         </div>
 
 
-        <!-- ============================= -->
-        <!-- CADASTRO -->
-        <!-- ============================= -->
+        <div class="card-body">
 
-        <div class="card shadow-sm mb-4">
+            <div class="d-flex gap-2 flex-wrap">
 
-            <div class="card-header bg-dark text-white">
-
-                <h4 class="mb-0">
-                    Cadastro de Gato
-                </h4>
-
-            </div>
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    onclick="buscarGato()"
+                >
+                    🔎 Buscar gatinhos do nosso Banco
+                </button>
 
 
-            <div class="card-body">
-
-                <form>
-
-                    <div class="row">
-
-                        <!-- ID -->
-
-                        <div class="col-md-3 mb-3">
-
-                            <label
-                                for="inputId"
-                                class="form-label"
-                            >
-                                ID
-                            </label>
-
-                            <input
-                                type="number"
-                                id="inputId"
-                                class="form-control"
-                                placeholder="ID do gato"
-                            >
-
-                        </div>
-
-
-                        <div class="col-md-9 mb-3">
-
-                            <label
-                                for="inputName"
-                                class="form-label"
-                            >
-                                Nome
-                            </label>
-
-                            <input
-                                type="text"
-                                id="inputName"
-                                class="form-control"
-                                placeholder="Nome do gato"
-                            >
-
-                        </div>
-
-
-                        <div class="col-md-6 mb-3">
-
-                            <label
-                                for="inputTemperament"
-                                class="form-label"
-                            >
-                                Temperamento
-                            </label>
-
-                            <input
-                                type="text"
-                                id="inputTemperament"
-                                class="form-control"
-                                placeholder="Ex: Active, Energetic"
-                            >
-
-                        </div>
-
-
-                        <div class="col-md-6 mb-3">
-
-                            <label
-                                for="inputOrigin"
-                                class="form-label"
-                            >
-                                Origem
-                            </label>
-
-                            <input
-                                type="text"
-                                id="inputOrigin"
-                                class="form-control"
-                                placeholder="Ex: Egypt"
-                            >
-
-                        </div>
-
-
-                        <div class="col-12 mb-3">
-
-                            <label
-                                for="inputDescription"
-                                class="form-label"
-                            >
-                                Descrição
-                            </label>
-
-                            <textarea
-                                id="inputDescription"
-                                class="form-control"
-                                rows="4"
-                                placeholder="Descrição do gato"
-                            ></textarea>
-
-                        </div>
-
-                    </div>
-
-                    <div class="d-flex flex-wrap gap-2">
-
-                        <button
-                            type="button"
-                            class="btn btn-success"
-                            onclick="cadastrarGATO()"
-                        >
-                            ➕ Cadastrar
-                        </button>
-
-
-                        <button
-                            type="button"
-                            class="btn btn-primary"
-                            onclick="gatoAtualizar()"
-                        >
-                            ✏️ Atualizar
-                        </button>
-
-
-                        <button
-                            type="button"
-                            class="btn btn-info"
-                            onclick="gatoPorId()"
-                        >
-                            🔎 Buscar por ID
-                        </button>
-
-
-                        <button
-                            type="button"
-                            class="btn btn-danger"
-                            onclick="GatoExcluir()"
-                        >
-                            🗑️ Excluir
-                        </button>
-
-
-                        <button
-                            type="button"
-                            class="btn btn-dark"
-                            onclick="buscarGato()"
-                        >
-                            📋 Listar gatos
-                        </button>
-
-                    </div>
-
-                </form>
+                <button
+                    type="button"
+                    class="btn btn-info text-white"
+                    onclick="carregarRacas()"
+                >
+                    🐱 Buscar raças no geral
+                </button>
 
             </div>
 
         </div>
 
+    </div>
 
-        <div class="card shadow-sm mb-4">
+    <div class="card shadow-sm mb-4">
 
-            <div class="card-header bg-warning">
+        <div class="card-header bg-dark text-white">
 
-                <h4 class="mb-0">
-                    🐱 Gato Aleatório
-                </h4>
+            <h5 class="mb-0">
+                Gerenciar Gato
+            </h5>
+
+        </div>
+
+
+        <div class="card-body">
+
+
+            <div class="mb-3">
+
+                <label
+                    for="catApiId"
+                    class="form-label fw-bold"
+                >
+                    ID da The Cat API
+                </label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="catApiId"
+                    placeholder="Ex: abys"
+                >
+
+                <div class="form-text">
+                    Use o ID da raça na The Cat API.
+                    Exemplo: <strong>abys</strong>
+                </div>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label
+                    for="name"
+                    class="form-label"
+                >
+                    Nome
+                </label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    placeholder="Ex: Abyssinian"
+                >
 
             </div>
 
 
-            <div class="card-body text-center">
+            <div class="mb-3">
 
-                <p class="text-muted">
-                    Busque um gatinho aleatório
-                </p>
+                <label
+                    for="speciesId"
+                    class="form-label"
+                >
+                    Species ID
+                </label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="speciesId"
+                    placeholder="Ex: 1"
+                >
+
+            </div>
+
+
+            <div class="mb-3">
+
+                <label
+                    for="temperament"
+                    class="form-label"
+                >
+                    Temperamento
+                </label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="temperament"
+                    placeholder="Ex: Active, Energetic, Curious"
+                >
+
+            </div>
+
+            <div class="mb-3">
+
+                <label
+                    for="origin"
+                    class="form-label"
+                >
+                    Origem
+                </label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="origin"
+                    placeholder="Ex: Egypt"
+                >
+
+            </div>
+
+            <div class="mb-3">
+
+                <label
+                    for="countryCodes"
+                    class="form-label"
+                >
+                    Country Codes
+                </label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="countryCodes"
+                    placeholder="Ex: EG"
+                >
+
+            </div>
+
+            <div class="mb-3">
+
+                <label
+                    for="countryCode"
+                    class="form-label"
+                >
+                    Country Code
+                </label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="countryCode"
+                    placeholder="Ex: EG"
+                >
+
+            </div>
+
+            <div class="mb-3">
+
+                <label
+                    for="description"
+                    class="form-label"
+                >
+                    Descrição
+                </label>
+
+                <textarea
+                    class="form-control"
+                    id="description"
+                    rows="3"
+                    placeholder="Descrição da raça"
+                ></textarea>
+
+            </div>
+
+
+            <div class="mb-3">
+
+                <label
+                    for="bredFor"
+                    class="form-label"
+                >
+                    Bred For
+                </label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="bredFor"
+                    placeholder="Finalidade da raça"
+                >
+
+            </div>
+
+
+            <div class="mb-3">
+
+                <label
+                    for="perfectFor"
+                    class="form-label"
+                >
+                    Perfect For
+                </label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="perfectFor"
+                    placeholder="Ideal para"
+                >
+
+            </div>
+
+
+            <div class="mb-3">
+
+                <label
+                    for="breedGroup"
+                    class="form-label"
+                >
+                    Breed Group
+                </label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="breedGroup"
+                    placeholder="Ex: Short-haired"
+                >
+
+            </div>
+
+
+            <div class="mb-3">
+
+                <label
+                    for="history"
+                    class="form-label"
+                >
+                    História
+                </label>
+
+                <textarea
+                    class="form-control"
+                    id="history"
+                    rows="4"
+                    placeholder="História da raça"
+                ></textarea>
+
+            </div>
+
+
+            <div class="mb-3">
+
+                <label
+                    for="lifeSpan"
+                    class="form-label"
+                >
+                    Expectativa de vida
+                </label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="lifeSpan"
+                    placeholder="Ex: 14-17"
+                >
+
+            </div>
+
+
+            <div class="mb-3">
+
+                <label
+                    for="referenceImageId"
+                    class="form-label"
+                >
+                    Reference Image ID
+                </label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="referenceImageId"
+                    placeholder="Ex: KWdLHmOqc"
+                >
+
+            </div>
+
+
+            <div class="mb-3">
+
+                <label
+                    for="weight"
+                    class="form-label"
+                >
+                    Peso
+                </label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="weight"
+                    placeholder="Ex: 3.6-5.4"
+                >
+
+            </div>
+
+
+            <div class="mb-3">
+
+                <label
+                    for="height"
+                    class="form-label"
+                >
+                    Altura
+                </label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="height"
+                    placeholder="Ex: 25-30"
+                >
+
+            </div>
+
+
+
+            <div class="mb-3">
+
+                <label
+                    for="image"
+                    class="form-label"
+                >
+                    URL da imagem
+                </label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="image"
+                    placeholder="https://cdn2.thecatapi.com/images/..."
+                >
+
+            </div>
+
+
+            <div class="d-flex gap-2 flex-wrap mt-4">
+
+                <button
+                    type="button"
+                    class="btn btn-success"
+                    onclick="salvarGato()"
+                >
+                    ➕ Salvar no Banco
+                </button>
 
 
                 <button
                     type="button"
                     class="btn btn-warning"
-                    onclick="buscarGatoAleatorio()"
+                    onclick="editarGato()"
                 >
-                    🎲 Buscar gato aleatório
+                    ✏️ Atualizar
                 </button>
 
 
-                <div id="resultadoGato"></div>
+                <button
+                    type="button"
+                    class="btn btn-danger"
+                    onclick="deletarGato()"
+                >
+                    🗑️ Excluir
+                </button>
+
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    onclick="limparFormulario()"
+                >
+                    🧹 Limpar
+                </button>
 
             </div>
 
         </div>
 
-        <div class="card shadow-sm mb-4">
+    </div>
 
-            <div class="card-header bg-dark text-white">
-
-                <h4 class="mb-0">
-                    📋 Gatos cadastrados
-                </h4>
-
-            </div>
+    <div
+        id="telaResposta"
+        class="mb-4"
+    ></div>
 
 
-            <div class="card-body">
 
-                <div class="table-responsive">
+    <div class="card shadow-sm mb-5">
 
-                    <table class="table table-striped table-hover align-middle">
+        <div class="card-header bg-dark text-white">
 
-                        <thead class="table-dark">
-
-                            <tr>
-
-                                <th>ID</th>
-
-                                <th>Nome</th>
-
-                                <th>Temperamento</th>
-
-                                <th>Origem</th>
-
-                                <th>Descrição</th>
-
-                                <th>Imagem</th>
-
-                            </tr>
-
-                        </thead>
-
-
-                        <tbody>
-
-                        </tbody>
-
-                    </table>
-
-                </div>
-
-            </div>
+            <h5 class="mb-0">
+                Gatinhos cadastrados e Raças disponíveis
+            </h5>
 
         </div>
 
 
-        <div class="card shadow-sm mb-5">
+        <div class="card-body p-0">
 
-            <div class="card-header">
+            <div class="table-responsive">
 
-                <h4 class="mb-0">
-                    💻 Resposta da API
-                </h4>
+                <table
+                    class="table table-striped table-hover align-middle mb-0"
+                >
 
-            </div>
+                    <thead class="table-dark">
+
+                        <tr>
+
+                            <th>ID MySQL</th>
+
+                            <th>ID API</th>
+
+                            <th>Nome</th>
+
+                            <th>Temperamento</th>
+
+                            <th>Origem</th>
+
+                            <th>Descrição</th>
+
+                            <th>Vida</th>
+
+                            <th>Peso</th>
+
+                            <th>Altura</th>
+
+                            <th>Imagem</th>
+
+                            <th>Ação</th>
+
+                        </tr>
+
+                    </thead>
 
 
-            <div class="card-body">
+                    <tbody id="tabelaGatos">
 
-                <pre
-                    id="telaResposta"
-                    class="bg-dark text-white p-3 rounded"
-                ></pre>
+                        <tr>
+
+                            <td
+                                colspan="11"
+                                class="text-center text-muted py-4"
+                            >
+
+                                Clique em
+                                <strong>
+                                    "Buscar gatos do MySQL"
+                                </strong>
+                                ou
+                                <strong>
+                                    "Buscar raças da API"
+                                </strong>.
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
 
             </div>
 
@@ -333,13 +557,16 @@
     </div>
 
 
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    ></script>
+</div>
 
 
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
 
-    <script src="/JS/🟨 script.js"></script>
+
+<script src="/JS/🟨 script.js"></script>
+
 
 </body>
 
