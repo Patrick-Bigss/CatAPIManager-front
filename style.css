@@ -1,1 +1,515 @@
- 
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        Geneva,
+        Verdana,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff8fc 0%,
+            #fff1f8 45%,
+            #f8f1ff 100%
+        );
+
+    color: #3f3345;
+}
+
+
+.cat-navbar {
+    background:
+        linear-gradient(
+            90deg,
+            #7b3f98,
+            #a855a8
+        );
+
+    min-height: 65px;
+
+    box-shadow:
+        0 4px 15px rgba(93, 45, 110, 0.18);
+}
+
+
+.cat-navbar .navbar-brand {
+    color: white;
+
+    font-size: 1.35rem;
+
+    letter-spacing: 0.3px;
+}
+
+
+.cat-navbar .navbar-text {
+    color: rgba(255, 255, 255, 0.85);
+
+    font-size: 0.95rem;
+}
+
+
+.hero-section {
+    padding: 45px 0 35px;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(255, 186, 226, 0.6),
+            transparent 35%
+        );
+}
+
+
+.hero-content {
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+}
+
+
+.cat-icon {
+    width: 90px;
+
+    height: 90px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: white;
+
+    border-radius: 30px;
+
+    font-size: 3.2rem;
+
+    box-shadow:
+        0 10px 30px rgba(109, 59, 124, 0.12);
+}
+
+
+.hero-content h1 {
+    margin: 0;
+
+    font-size: 2.7rem;
+
+    font-weight: 800;
+
+    color: #663477;
+}
+
+
+.hero-content p {
+    margin: 7px 0 0;
+
+    color: #76677b;
+
+    font-size: 1.05rem;
+}
+
+
+.main-container {
+    padding-bottom: 60px;
+}
+
+
+.section-card {
+    background: rgba(255, 255, 255, 0.95);
+
+    border: 1px solid #f0ddeb;
+
+    border-radius: 20px;
+
+    padding: 28px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 8px 30px rgba(87, 43, 96, 0.08);
+}
+
+
+.section-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+
+.section-icon {
+    width: 50px;
+
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #f8e8f6;
+
+    border-radius: 15px;
+
+    font-size: 1.5rem;
+}
+
+
+.section-title h2 {
+    margin: 0;
+
+    color: #663477;
+
+    font-size: 1.4rem;
+
+    font-weight: 750;
+}
+
+
+.section-title p {
+    margin: 3px 0 0;
+
+    color: #88788e;
+
+    font-size: 0.9rem;
+}
+
+.action-buttons {
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+
+.cat-btn {
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 11px 18px;
+
+    font-weight: 600;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.cat-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+
+.cat-btn-primary {
+    background: #754092;
+
+    color: white;
+}
+
+
+.cat-btn-primary:hover {
+    background: #663477;
+
+    color: white;
+}
+
+
+.cat-btn-api {
+    background: #d96bb2;
+
+    color: white;
+}
+
+
+.cat-btn-api:hover {
+    background: #c2579d;
+
+    color: white;
+}
+
+
+.cat-btn-success {
+    background: #54a77b;
+
+    color: white;
+}
+
+
+.cat-btn-success:hover {
+    background: #438d66;
+
+    color: white;
+}
+
+
+.cat-btn-warning {
+    background: #e6a83f;
+
+    color: white;
+}
+
+
+.cat-btn-warning:hover {
+    background: #ce932d;
+
+    color: white;
+}
+
+
+.cat-btn-danger {
+    background: #d95c73;
+
+    color: white;
+}
+
+
+.cat-btn-danger:hover {
+    background: #c4475f;
+
+    color: white;
+}
+
+
+.cat-btn-secondary {
+    background: #8b7c90;
+
+    color: white;
+}
+
+
+.cat-btn-secondary:hover {
+    background: #75677a;
+
+    color: white;
+}
+
+.form-label {
+    color: #58455f;
+
+    font-weight: 650;
+
+    margin-bottom: 7px;
+}
+
+
+.cat-input {
+    border: 1px solid #e6d7e7;
+
+    border-radius: 11px;
+
+    padding: 11px 13px;
+
+    background: #fffafd;
+
+    color: #46364c;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.cat-input:focus {
+    border-color: #b36cc1;
+
+    background: white;
+
+    box-shadow:
+        0 0 0 0.2rem rgba(179, 108, 193, 0.15);
+}
+
+
+.cat-input::placeholder {
+    color: #b0a5b3;
+}
+
+
+.form-text {
+    color: #958898;
+
+    margin-top: 5px;
+}
+
+
+.crud-area {
+    margin-top: 30px;
+
+    padding: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff4fb,
+            #f8f1ff
+        );
+
+    border: 1px dashed #dfc5df;
+
+    border-radius: 16px;
+}
+
+
+.crud-area h5 {
+    margin-bottom: 3px;
+
+    color: #663477;
+
+    font-weight: 750;
+}
+
+
+.crud-area p {
+    color: #8a798f;
+
+    font-size: 0.9rem;
+
+    margin-bottom: 15px;
+}
+
+.table-card {
+    overflow: hidden;
+}
+
+
+.table-card .table-responsive {
+    border-radius: 12px;
+}
+
+
+.table {
+    margin-bottom: 0;
+
+    color: #4b3c50;
+}
+
+
+.table thead {
+    background: #70418a;
+
+    color: white;
+}
+
+
+.table thead th {
+    background: #70418a;
+
+    color: white;
+
+    border: none;
+
+    font-size: 0.85rem;
+
+    white-space: nowrap;
+
+    padding: 14px 12px;
+}
+
+
+.table tbody td {
+    padding: 13px 12px;
+
+    font-size: 0.9rem;
+
+    border-color: #f0e5f0;
+
+    vertical-align: middle;
+}
+
+
+.table tbody tr:hover {
+    background: #fff6fc;
+}
+
+.table img {
+    border-radius: 12px;
+
+    object-fit: cover;
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.12);
+}
+
+
+.alert {
+    border: none;
+
+    border-radius: 13px;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.06);
+}
+
+.cat-footer {
+    padding: 25px 0;
+
+    background: #3f2947;
+
+    color: #eee4f0;
+
+    font-size: 0.9rem;
+}
+
+
+.footer-separator {
+    margin: 0 10px;
+
+    color: #b995c0;
+}
+
+
+
+@media (max-width: 768px) {
+
+    .hero-content {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .hero-content h1 {
+        font-size: 2.1rem;
+    }
+
+
+    .section-card {
+        padding: 20px;
+    }
+
+
+    .cat-navbar .navbar-text {
+        display: none;
+    }
+
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+
+    .cat-btn {
+        width: 100%;
+    }
+
+}
