@@ -26,6 +26,7 @@ Toda a comunicação com o banco de dados é realizada através do **backend des
 ---
 
 ```text
+Repositório do Backend:
 🔗 Backend:
 https://github.com/Patrick-Bigss/CatAPIManager-front
 
@@ -205,9 +206,6 @@ Receber requisições do frontend
 Realizar operações CRUD
 Comunicar-se com o MySQL
 
-Repositório do Backend:
-
-COLOQUE_AQUI_O_LINK_DO_SEU_REPOSITORIO_BACKEND
 🎯 Objetivo do projeto
 
 O principal objetivo do frontend foi colocar em prática conhecimentos de:
