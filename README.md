@@ -27,8 +27,7 @@ Toda a comunicação com o banco de dados é realizada através do **backend des
 
 ```text
 🔗 Backend:
-https://github.com/SEU-USUARIO/CatManagerBack
-
+https://github.com/Patrick-Bigss/CatAPIManager-front
 
 ## 🔄 Funcionamento
 
